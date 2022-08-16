@@ -1,30 +1,34 @@
 import React, { useEffect, useState, useContext} from "react";
+import  "chart.js/auto";
 import getData from "./../data/fetch_data";
 import { optionsChartjs_2 } from "./options";
 import { Context } from "../data/Context";
 import { dataLabel } from "./../data/dataLabel";
-import { Chart as ChartJS } from "chart.js/auto";
 
 import { Line } from "react-chartjs-2";
 
-
 function Graph() {
-    
+
     const { days } = useContext(Context);
+    const [memoData, setMemoData] = useState(new Map());
+
     const [data, setData] = useState({
             labels: [],
             datasets: [],
     });
 
     useEffect(() => {
+        if (!memoData.has(days)) {
+            getData(days).then(value => {
+                let dataObj = dataLabel.addData(value);
+                setData(dataObj);
+                setMemoData(updMap => updMap.set(days, dataObj));
+            });
+        } else {
+            setData(memoData.get(days));
+        }
 
-        getData(days).then(value => {
-
-            setData(dataLabel.add(value));
-        });
-        
-    },[days]);
-    
+    },[days, memoData]);
 
     return (
         <div id="chart">

@@ -1,8 +1,7 @@
 //import { Chart } from 'chart.js';
 import 'chartjs-adapter-moment';
 
-
-////////// ApexChart optioin /////////////
+////////// ApexChart optioins /////////////
 
 export const options = {
     chart: {
@@ -77,9 +76,7 @@ export const options = {
 
 export let optionsChartjs_2 = {
     elements: { point: { radius: 0 } } ,
-   
     plugins: {
-        
         legend: {
             display: false
         },
@@ -107,7 +104,7 @@ export let optionsChartjs_2 = {
     },
 
     scales: {
-        
+
         x: {
             grid: {
                 display: false
@@ -125,7 +122,6 @@ export let optionsChartjs_2 = {
             }, 
         },
         y: {
-
             ticks: {
                 beginAtZero: true,
                 autoSkip: true,
@@ -133,12 +129,8 @@ export let optionsChartjs_2 = {
                 callback: function(value) {
                     return  (Number.parseFloat(value).toFixed(2)) + 'K';
                 },
-                tooltip: {
-                    enabled: true,
-                    offsetX: 0,
-                },
             },
-        }
-        
+            
+        },
     }
 }

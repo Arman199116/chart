@@ -13,15 +13,12 @@ function App() {
     const [days, dispatch] = useReducer(reduser, 1);
 
     return (
-        
         <Context.Provider value={{days, dispatch}}>
             <div className='parrent_class'>
                 <Header />
-                
                 <Chartjs2 />
             </div>
         </Context.Provider>
-        
     );
 }
 

@@ -8,7 +8,7 @@ const getData = async (days) => {
             "Access-Control-Allow-Credentials": true,
         },
     };
-
+    console.log('fetch data ' +  days);
     let response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${days}&interval=1`, options);
     let value = await response.json();
 
