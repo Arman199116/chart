@@ -1,19 +1,18 @@
-const getData = async () => {
-    
-    var options = {  
-        method: 'GET',
+
+const getData = async (days) => {
+    var options = {
+        method: "GET",
         headers: {
-            'Accept': 'application/json',
-            'Access-Control-Allow-Origin' : '*',
-        
+            'Accept': "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
         },
     };
-    let value
-    
-    // return fetch('https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=1', options )
-    //       .then(response => response.json())
-    
-       
-}
+
+    let response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${days}&interval=1`, options);
+    let value = await response.json();
+
+    return value;
+};
 
 export default getData;

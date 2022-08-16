@@ -4,7 +4,6 @@
 }
 .parrent_class {
 	width: 70%;
-	
 	background: linear-gradient(#FEFEFE, #CDCDCD);
 }
 .container {
@@ -43,4 +42,8 @@ span:hover {
 .img_icons {
 	width: 12px;
 	height: 12px;
+}
+
+.active {
+	background-color: #F8FAFD;
 }
