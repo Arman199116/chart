@@ -1,5 +1,7 @@
-//import { Chart } from 'chart.js';
+import { Chart  } from 'chart.js';
 import 'chartjs-adapter-moment';
+import {CrosshairPlugin} from 'chartjs-plugin-crosshair';
+Chart.register(CrosshairPlugin);
 
 ////////// ApexChart optioins /////////////
 
@@ -77,6 +79,13 @@ export const options = {
 export let optionsChartjs_2 = {
     elements: { point: { radius: 0 } } ,
     plugins: {
+        crosshair: {
+       
+            line: {
+                color: "#d1d1d1",
+                width: 2,
+            },
+        },
         legend: {
             display: false
         },
@@ -92,7 +101,7 @@ export let optionsChartjs_2 = {
                 label: function(chart) {
                     return ' Price $' + chart.formattedValue 
                 },
-                labelColor: function(context) {
+                labelColor: function(chart) {
                     return {   
                         backgroundColor: '#16C784',
                         borderWidth: 3,
@@ -119,7 +128,7 @@ export let optionsChartjs_2 = {
                 autoSkip: false,
                 maxRotation: 0,
                 minRotation: 0,
-            }, 
+            }    
         },
         y: {
             ticks: {
@@ -130,7 +139,6 @@ export let optionsChartjs_2 = {
                     return  (Number.parseFloat(value).toFixed(2)) + 'K';
                 },
             },
-            
         },
     }
 }

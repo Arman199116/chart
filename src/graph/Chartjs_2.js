@@ -28,11 +28,24 @@ function Graph() {
             setData(memoData.get(days));
         }
 
+        // if (localStorage.getItem( days) === null) { (?<=1)(0+?)(?=1)
+        //     getData(days).then(value => {
+        //         let dataObj = dataLabel.addData(value);
+        //         setData(dataObj);
+        //         localStorage.setItem( days, JSON.stringify(dataObj));
+        //     });
+        // } else {
+        //     setData(JSON.parse(localStorage.getItem(days)));
+        // }
+        // setInterval(() => {
+        //     console.log('cleared localStorage');
+        //     localStorage.clear();
+        // }, 60 * 60 * 1000);
     },[days, memoData]);
-
+    
     return (
         <div id="chart">
-            <Line data={data} options={optionsChartjs_2} height={400} width={800} />
+            <Line data={data} options={optionsChartjs_2} height={400} width={800}  />
         </div>
     );
 }
